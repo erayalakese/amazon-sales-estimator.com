@@ -24,7 +24,7 @@ function start() {
 	var requestOptions = {
 		method: 'PUT',
 		headers: myHeaders,
-		body: data,
+		body: input.files[0],
 		redirect: 'follow'
 	};
 	
