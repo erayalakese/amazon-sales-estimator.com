@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Amazon Sales Estimator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="main" role"main">
+
+<h1 class="white">Amazon Sales Estimator</h1>
+	<h2>You can estimate your next month sales by using this machine-learning backed tool.</h2>
+	<p>To estimate your sales, you need to upload your order history per month. We are expecting a comma-separated value (CSV) file with this header </p><pre class="">Date,Sales</pre>
+	<p>Date is in YYYY-MM format, like 2022-01</p>
+	<pre>
+Date,Sales
+2022-10,47
+2022-09,58
+2022-08,56
+2022-07,41
+2022-06,72
+2022-05,54
+2022-04,59
+...
+	</pre>
+
+<div class="container">
+<div class="upload">
+  <input type="file" title="" class="drop-here">
+  <div class="text text-drop">drop here</div>
+  <div class="text text-upload">uploading</div>
+  <svg class="progress-wrapper" width="300" height="300">
+    <circle class="progress" r="115" cx="150" cy="150"></circle>
+  </svg>
+  <svg class="check-wrapper" width="130" height="130">
+    <polyline class="check" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+  </svg>
+  <div class="shadow"></div>
+</div>
+</div>
+
+<h2>Fetch images of any ASIN via Amazon Selling Partner API.</h2>
+	<input type="text" placeholder="ASIN" id="asin" />
+	<select id="domain">
+		<option value="amazon.com.tr">amazon.com.tr</option>
+	</select>
+	<button class="search">Search</button>
+<pre>
+var requestOptions = {
+  method: 'GET'
+};
+
+fetch("https://api.amazonimagesapi.com/B0756CYWWD/amazon.com.tr",
+requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+</pre>
+<h2>Response:</h2>
+<pre class="response"></pre>
+
+<a href="https://www.producthunt.com/posts/amazon-images-api?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-amazon&#0045;images&#0045;api" target="_blank" style="float:left;display:none"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=334919&theme=dark" alt="Amazon&#0032;Images&#0032;API - Easiest&#0032;and&#0032;free&#0032;way&#0032;to&#0032;fetch&#0032;Amazon&#0032;product&#0032;images | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://niceprice.rooftop.company"><img src="niceprice-logo.png" alt="niceprice-logo" /></a>
+
+<section style="clear: both">
+	<h2>This app is developed by <a href="https://niceprice.rooftop.company" class="link">NicePrice</a>.</h2>
+</section>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
